@@ -1,0 +1,19 @@
+.productId{
+  text-transform: uppercase;
+}
+.ProductDetails{
+  background-color: cadetblue;
+  display: flex;
+  
+  flex-direction: column;
+  align-items: center;
+  height: 30%;
+  width: 20%;
+  border: 3px solid red;
+}
+#productPic{
+  height: 30%;
+  width: 25%;
+  border-radius: 50%;
+  border: 5px solid black;
+}
