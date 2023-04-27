@@ -1,0 +1,14 @@
+
+.ProductDetails{
+    background-color: cadetblue;
+    
+    align-items: center;
+    
+    border: 3px solid red;
+}
+#productPic{
+    height: 200px;
+    width: 150px;
+    /* border-radius: 50%; */
+    border: 5px none black;
+}
