@@ -16,9 +16,11 @@
   background-color:rgb(7, 1, 1);
   align-items: center;
   text-align: center;
+  
 }
 body{
   background-color: rgb(49, 49, 49);
+  margin: 15%;
 }
 #span{
   text-transform: capitalize;
