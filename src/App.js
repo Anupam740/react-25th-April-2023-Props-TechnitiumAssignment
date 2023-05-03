@@ -1,35 +1,50 @@
-import React,{useState,useEffect,useRef} from "react";
-import "./App.css";
+// import logo from './logo.svg';
+import './App.css';
+// import List from './components/molecules/list/list';
+// import { number , names } from './components/const';
+// import RegistrationForm from './components/organisms/form/form';
+import { useState } from 'react';
+// import Card from './components/atoms/card/card';
+import Card from './components/Card';
 
-export default function App() {
-  const [index,setIndex]=useState(0)
-  const imgRef =useRef(null)
+
+
+function App() {
+
+  const [userDetail ,setUserDetail] = useState([])
+
+
+
+
+
+
+  async function getUsers () {
+    // fetch('https://reqres.in/api/users/')
+    // .then((response)=> response.json())
+    // .then((data)=>console.log(data.data))
+
+    const response = await fetch('https://reqres.in/api/users/')
+    const userData =  await response.json()
+    console.log(userData.data)
+    setUserDetail(userData.data)
+
 
   
-  const [imgData,SetImgData]=useState("https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022_960_720.jpg")
-  
-  var arr=["https://cdn.pixabay.com/photo/2016/02/17/19/08/lotus-1205631_960_720.jpg","https://cdn.pixabay.com/photo/2014/01/22/19/44/flower-field-250016_960_720.jpg","https://cdn.pixabay.com/photo/2012/03/01/00/55/flowers-19830_960_720.jpg","https://cdn.pixabay.com/photo/2013/07/02/22/20/bouquet-142876_960_720.jpg" ]
-  useEffect(()=>{
-    imgRef.current.src=imgData
-
-  })
-  const handleClick=()=>{
-    if(index==arr.length-1){
-      setIndex(0)
-
-    }
-    else{
-      setIndex(index+1)
-      SetImgData(arr[index])
-
-    }
-    
-
   }
+
+
+
   return (
-    <div>
-      <img id="img" src="" ref={imgRef} />
-      <button onClick={handleClick}>Click to Change</button>
+    <div className="App">
+      <div className='cardWrapper'>
+        {
+          userDetail.map((userData)=> <Card userData = {userData} key={userData.id}/>)
+        }
+      </div>
+      <button onClick={getUsers}>Get User</button>
+
     </div>
   );
 }
+
+export default App;

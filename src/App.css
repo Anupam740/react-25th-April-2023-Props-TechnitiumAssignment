@@ -20,9 +20,10 @@
 }
 body{
   background-color: rgb(49, 49, 49);
+  color: aliceblue;
   margin: 5%;
   margin-left: 27%;
-  display: flex;
+  display: flex inline block;
   flex-direction: column;
 }
 #span{

@@ -1,0 +1,15 @@
+.wrapper{
+    background-color: darkslategray;
+    color: aliceblue;
+    display: inline-flexbox;
+    
+    
+    
+    height: 300px;
+    width: 250px;
+    margin: auto;
+    margin-bottom: 3px;
+
+
+
+}
