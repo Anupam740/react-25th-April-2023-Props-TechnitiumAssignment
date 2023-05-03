@@ -1,50 +1,20 @@
-// import logo from './logo.svg';
-import './App.css';
-// import List from './components/molecules/list/list';
-// import { number , names } from './components/const';
-// import RegistrationForm from './components/organisms/form/form';
-import { useState } from 'react';
-// import Card from './components/atoms/card/card';
-import Card from './components/Card';
+import React,{useState,useEffect} from "react";
+import "./App.css";
 
-
-
-function App() {
-
-  const [userDetail ,setUserDetail] = useState([])
-
-
-
-
-
-
-  async function getUsers () {
-    // fetch('https://reqres.in/api/users/')
-    // .then((response)=> response.json())
-    // .then((data)=>console.log(data.data))
-
-    const response = await fetch('https://reqres.in/api/users/')
-    const userData =  await response.json()
-    console.log(userData.data)
-    setUserDetail(userData.data)
-
-
-  
+export default function App() {
+  const[data,setData]=useState()
+  async function DogImg(){
+    const response=await fetch('https://dog.ceo/api/breeds/image/random')
+    const dogimage=await response.json()
+    setData(dogimage.message)
   }
-
-
-
+  useEffect(()=>{
+    DogImg();
+  })
   return (
-    <div className="App">
-      <div className='cardWrapper'>
-        {
-          userDetail.map((userData)=> <Card userData = {userData} key={userData.id}/>)
-        }
-      </div>
-      <button onClick={getUsers}>Get User</button>
-
+    <div className="dogimg">
+      <img id="img"
+      src={data}/>
     </div>
   );
 }
-
-export default App;
